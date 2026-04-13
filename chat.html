@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat 💬</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h3 id="status"></h3>
+
+<input id="friend" placeholder="Friend email"><br><br>
+
+<div id="messages"></div>
+
+<input id="msg" placeholder="Message..." oninput="typing()">
+<button onclick="send()">Send</button>
+
+<input type="file" onchange="sendImage(event)">
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="socket.js"></script>
+
+</body>
+</html>

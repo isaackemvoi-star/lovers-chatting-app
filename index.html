@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lovers Chat 💕</title>
+</head>
+<body>
+
+<h2>Login</h2>
+
+<input id="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="signup()">Signup</button>
+<button onclick="login()">Login</button>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyDuK0AHrSfKUhZY8U7GvDPRIJ2e9GZ74Go",
+  authDomain: "lovers-chattingapp.firebaseapp.com",
+  projectId: "lovers-chattingapp",
+  storageBucket: "lovers-chattingapp.firebasestorage.app",
+  messagingSenderId: "692460774189",
+  appId: "1:692460774189:web:ce67c412e4bc0f7a39a9a4"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+</script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
