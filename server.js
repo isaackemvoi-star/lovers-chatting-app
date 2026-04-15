@@ -1,33 +1,21 @@
 const express = require("express");
-const http = require("http");
-const socketIo = require("socket.io");
-const cors = require("cors");
+const path = require("path");
 
 const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
-
-app.use(cors());
-app.use(express.json());
-app.use(express.static("public"));
-
 const PORT = process.env.PORT || 5000;
 
-let onlineUsers = {};
-let messages = [];
+// Serve static files (VERY IMPORTANT)
+app.use(express.static(path.join(__dirname, "public")));
 
-// SOCKET
-io.on("connection", (socket) => {
+// Route for homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
-  socket.on("join", (email) => {
-    socket.email = email;
-    onlineUsers[email] = socket.id;
-
-    io.emit("users", Object.keys(onlineUsers));
-  });
-
-  socket.on("sendMessage", (data) => {
-    const msg = {
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
       from: data.from,
       to: data.to,
       message: data.message,
